@@ -1,0 +1,159 @@
+
+/* custom css */
+
+/* custom font size define */
+.f-18{
+        font-size: 18px;
+}
+
+
+.action-btn {
+        padding: 6px 8px;
+        background-color: #ffb731;
+        color: #000;
+        border-radius: 5px;
+}
+
+.view-btn {
+    padding: 6px 8px;
+    background-color: #14A44D;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.destroy-btn {
+    padding: 6px 8px;
+    background-color: #dc3545;
+    color: #000;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+.add-btn {
+    padding: 6px 8px;
+    background: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    margin: 5px 0px;
+}
+
+.modal-close-btn {
+    padding: 6px 8px;
+    background: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    margin: 5px 5px;
+}
+
+.add-btn i{
+    margin-right: 5px;
+}
+
+.add-btn i::before {
+    vertical-align: middle;
+}
+
+/* existing css class customization */
+.data-table td{
+    padding: 15px;
+}
+
+.dataTable{
+    border-spacing: unset !important;
+}
+
+.dataTable tr{
+    vertical-align: middle !important;
+}
+
+.menu-title i::before{
+    line-height: 1 !important;
+    margin-right: 5px;
+}
+
+.dropy-icon i{
+    vertical-align: middle;
+}
+
+.custom-bg {
+    background-color: #f7f7ff;
+}
+
+.formerrors {
+    margin: 0px;
+    padding: 10px;
+    
+}
+
+.formerrors ul{
+    margin: 0px;
+    padding: 3px;
+    list-style: none;
+}
+
+/* Drag and drop */
+.imageuploadify{
+    min-height: auto !important;
+}
+.imageuploadify .imageuploadify-images-list i {
+    font-size: 5.7em !important;
+}
+.imageuploadify-images-list{
+    padding: 10px !important;
+}
+
+.imageuploadify-message{
+    display: none !important;
+}
+
+.form-switch .form-check-input {
+    margin-left: 0px;
+}
+
+/* text wrap */
+.custom-text-wrap td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    max-width: 200px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -6px;
+    right: 16px;
+    background-color: rgb(233, 38, 38);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+.font-24{
+    position: relative;
+}
+
+#conversation_list h6{
+    font-size: 14px !important;
+}
+
+/* extra */
+.background_primary_bg{
+    background-color: #58a1f9;
+}
+
+
+
+/* bootstrap css  */
+
+/* responsive */
+@media screen and (min-width: 992px){
+    .primary-menu .navbar .navbar-nav .dropdown-menu {
+        width: 16rem;
+    }
+}
+
+
+
