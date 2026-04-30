@@ -41,27 +41,29 @@ class PermissionService {
                     ['name' => 'operation-menu-list', 'checked' => 1],
                 ],
             ],
-            // 'mapping_menu' => [
-            //     'parent_checked' => 1,
-            //     'label' => 'mapping menu permissions',
-            //     'list' => [
-            //         ['name' => 'mapping-menu-list', 'checked' => 1],
-            //     ],
-            // ],
+            'mapping_menu' => [
+                'parent_checked' => 1,
+                'label' => 'mapping menu permissions',
+                'list' => [
+                    ['name' => 'mapping-menu-list', 'checked' => 1],
+                ],
+            ],
             
-            // 'product_question_mapping' => [
-            //     'parent_checked' => 1,
-            //     'label' => 'product question mapping permissions',
-            //     'list' => [
-            //         ['name' => 'product-question-mapping-list', 'checked' => 1],
-            //         ['name' => 'product-question-mapping-create', 'checked' => 1],
-            //     ],
-            // ],
+            'product_question_mapping' => [
+                'parent_checked' => 1,
+                'label' => 'product question mapping permissions',
+                'list' => [
+                    ['name' => 'product-question-mapping-list', 'checked' => 1],
+                    ['name' => 'product-question-mapping-create', 'checked' => 1],
+                ],
+            ],
             'leads' => [
                 'parent_checked' => 1,
                 'label' => 'lead permissions',
                 'list' => [
                     ['name' => 'lead-list', 'checked' => 1],
+                    ['name' => 'lead-conversation', 'checked' => 1],
+                    
                 ],
             ],
             'conversations' => [
@@ -82,33 +84,33 @@ class PermissionService {
                     ['name' => 'chat-all-conversation', 'checked' => 1],
                 ],
             ],
-            // 'questions' => [
-            //     'parent_checked' => 1,
-            //     'label' => 'question permissions',
-            //     'list' => [
-            //         ['name' => 'question-list', 'checked' => 1],
-            //         ['name' => 'question-create', 'checked' => 1],
-            //         ['name' => 'question-edit', 'checked' => 1],
-            //     ],
-            // ],
-            // 'products' => [
-            //     'parent_checked' => 1,
-            //     'label' => 'product permissions',
-            //     'list' => [
-            //         ['name' => 'product-list', 'checked' => 1],
-            //         ['name' => 'product-create', 'checked' => 1],
-            //         ['name' => 'product-edit', 'checked' => 1],
-            //     ],
-            // ],
-            // 'conversation_types' => [
-            //     'parent_checked' => 1,
-            //     'label' => 'conversation type permissions',
-            //     'list' => [
-            //         ['name' => 'conversation-type-list', 'checked' => 1],
-            //         ['name' => 'conversation-type-create', 'checked' => 1],
-            //         ['name' => 'conversation-type-edit', 'checked' => 1],
-            //     ],
-            // ],
+            'questions' => [
+                'parent_checked' => 1,
+                'label' => 'question permissions',
+                'list' => [
+                    ['name' => 'question-list', 'checked' => 1],
+                    ['name' => 'question-create', 'checked' => 1],
+                    ['name' => 'question-edit', 'checked' => 1],
+                ],
+            ],
+            'products' => [
+                'parent_checked' => 1,
+                'label' => 'product permissions',
+                'list' => [
+                    ['name' => 'product-list', 'checked' => 1],
+                    ['name' => 'product-create', 'checked' => 1],
+                    ['name' => 'product-edit', 'checked' => 1],
+                ],
+            ],
+            'conversation_types' => [
+                'parent_checked' => 1,
+                'label' => 'conversation type permissions',
+                'list' => [
+                    ['name' => 'conversation-type-list', 'checked' => 1],
+                    ['name' => 'conversation-type-create', 'checked' => 1],
+                    ['name' => 'conversation-type-edit', 'checked' => 1],
+                ],
+            ],
             'roles' => [
                 'parent_checked' => 1,
                 'label' => 'role permissions',

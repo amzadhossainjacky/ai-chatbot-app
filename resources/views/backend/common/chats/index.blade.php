@@ -46,9 +46,9 @@
                                         @can('chat-faq-conversation')
                                             <th>Faq Chat</th>
                                         @endcan
-                                        @can('chat-product-conversation')
+                                       {{--  @can('chat-product-conversation')
                                             <th>Product Chat</th>
-                                        @endcan
+                                        @endcan --}}
                                         @can('chat-live-conversation')
                                             <th>Live Chat</th>
                                         @endcan
@@ -130,11 +130,11 @@
                         name: 'faq_chat'
                     },
                     @endcan
-                    @can('chat-product-conversation')
+                    /* @can('chat-product-conversation')
                     {
                         data: 'product_chat',
                         name: 'product_chat'
-                    },
+                    }, */
                     @endcan
                     @can('chat-live-conversation')
                     {

@@ -86,7 +86,7 @@ class QuestionController extends Controller
     public function create()
     {
 
-        $conversation_types = ConversationType::where('is_active', 1)->get();
+        $conversation_types = ConversationType::where('is_active', 1)->wherein('id', [1, 3])->get();
         return view('backend.common.questions.create', compact('conversation_types'));
     }
 

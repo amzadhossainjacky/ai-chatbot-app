@@ -40,7 +40,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Phone</th>
+                                         @can('lead-conversation')
                                         <th>Conversation</th>
+                                            @endcan
                                         {{-- <th width="100px">Action</th> --}}
                                     </tr>
                                 </thead>
@@ -94,10 +96,13 @@
                         data: 'phone',
                         name: 'phone'
                     },
+                    @can('lead-conversation')
                     {
                         data: 'conversation',
                         name: 'conversation'
                     },
+                    
+                    @endcan
                     // {
                     //     data: 'action',
                     //     name: 'action',

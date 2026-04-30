@@ -29,10 +29,12 @@ class RedirectIfAuthenticated {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::check() && (Auth::user()->getRoleNames()[0] == 'admin')) {
-                return redirect('admin/dashboard');
-            }elseif (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'agent')) {
-                return redirect('agent/dashboard');
+            if (Auth::check() && (Auth::user()->getRoleNames()[0] == 'TICKET_ADMIN')) {
+                return redirect('TICKET_ADMIN/dashboard');
+            }elseif (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_GROUPADMIN')) {
+                return redirect('TICKET_GROUPADMIN/dashboard');
+            }elseif (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_AGENT')) {
+                return redirect('TICKET_AGENT/dashboard');
             }
             else{
                 return $next($request);

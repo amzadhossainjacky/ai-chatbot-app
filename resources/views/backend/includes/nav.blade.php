@@ -49,13 +49,18 @@
                             </a>
                         </li>
                     @endcan
-                    @can('conversation-list')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route(\Request::segment(1) . '.conversations') }}">
-                                <div class="menu-title d-flex align-items-end"><i class='{{_icons('messages')}}'></i>Conversations</div>
-                            </a>
-                        </li>
-                    @endcan
+                    
+                        @can('conversation-list')
+                        @if (auth()->check() && (auth()->user()->hasRole('TICKET_AGENT')))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route(\Request::segment(1) . '.conversations') }}">
+                                    <div class="menu-title d-flex align-items-end"><i class='{{_icons('messages')}}'></i>Conversations</div>
+                                </a>
+                            </li>
+                            
+                    @endif
+                        @endcan
+                    
                     @can('chat-menu-list')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown" style="vertical-align: middle">
@@ -69,7 +74,7 @@
                             </ul>
                         </li>
                     @endcan
-                    @can('mapping-menu-list')
+                    {{-- @can('mapping-menu-list')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown" style="vertical-align: middle">
                                 <div class="menu-title d-flex align-items-end"><i class='{{_icons('mapping')}}'></i>Mapping</div>
@@ -81,7 +86,7 @@
                                 @endcan
                             </ul>
                         </li>
-                    @endcan
+                    @endcan --}}
                     @can('operation-menu-list')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown" style="vertical-align: middle">

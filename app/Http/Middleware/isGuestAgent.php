@@ -18,9 +18,9 @@ class isGuestAgent
     public function handle(Request $request, Closure $next)
     {
         //return $next($request);
-        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'agent')) {
-            return redirect('agent/conversations');
-        }elseif(Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'admin')){
+        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_AGENT')) {
+            return redirect('TICKET_AGENT/conversations');
+        }elseif(Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_ADMIN')) {
             auth()->logout();
             $request->session()->flush();
         }

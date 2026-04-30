@@ -19,7 +19,7 @@ class IsAdmin
     {
         //return $next($request);
         
-        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'admin') ) {
+        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_ADMIN') ) {
             return $next($request);
         }
         else{

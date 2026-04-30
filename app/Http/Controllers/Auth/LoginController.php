@@ -20,7 +20,8 @@ class LoginController extends Controller
 {
      public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        //$this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'ssoLogout']);
     }
 
     /**
@@ -99,6 +100,7 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
+
     public function user_login(Request $request){
         if (Auth::check()) {
             dd('asdasdasd');
@@ -144,4 +146,68 @@ class LoginController extends Controller
             Toastr::warning("Your Credentials Invalid!", $th->getMessage());
         }
     }
+
+    public function ssoLogin(Request $request)
+    {
+        
+        // ## Validate
+        // $this->validate($request, [
+        //     'email' => 'email|required',
+        //     'password' => 'required|min:4'
+        // ]);
+
+
+        $email = $request->query('email');
+        $password = $request->query('password');
+
+        try {
+            ## Attempt to login
+            if (Auth::attemptWhen(['email' => $request->email, 'password' => $request->password])) {
+
+                // $user = User::with(['roles'])->find(auth()->id());
+                $user = User::find(auth()->id());
+
+                $session_inputs = [
+                    'user_full_name' => $user->name,
+                    'user_email' => $user->email,
+                    'role' => $user->first_role,
+                    'route_segment' => $user->route_segment,
+                ];
+
+                session($session_inputs);
+                request()->session()->regenerate();
+                Toastr::success("Login Successfully", "Success");
+                /* return redirect()->route('admin.dashboard'); */
+               
+                
+                return redirect()->route($session_inputs['route_segment'] . '.dashboard');
+
+            } else {
+                Toastr::warning("Your Credentials Invalid!", "Warning");
+                return redirect()->route('login');
+            }
+        } catch (\Throwable $th) {
+
+            if ($th instanceof RouteNotFoundException) {
+
+                ## Invalidate the user's session
+                request()->session()->invalidate();
+
+                ## Regenerate their CSRF token
+                request()->session()->regenerateToken();
+
+                return redirect()->route('login');
+            }
+            Toastr::warning("Your Credentials Invalid!", $th->getMessage());
+        }
+    }
+
+    public function ssoLogout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->flush();
+        Toastr::success("Logout Successfully", "Success");
+        return redirect()->route('login');
+    }
+
 }

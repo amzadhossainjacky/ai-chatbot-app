@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
             PermissionModelSeeder::class,
             ConversationTypeModelSeeder::class,
             QuestionModelSeeder::class,
-            ProductModelSeeder::class,
-            ProductQuestionMappingModelSeeder::class,
+            // ProductModelSeeder::class,
+            // ProductQuestionMappingModelSeeder::class,
             LeadModelSeeder::class,
-            ConversationModelSeeder::class,
-            ConversationAssociateModelSeeder::class,
+            // ConversationModelSeeder::class,
+            // ConversationAssociateModelSeeder::class,
         ]);
     }
 }

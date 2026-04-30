@@ -64,6 +64,6 @@ class User extends Authenticatable
      */
     protected function getRouteSegmentAttribute()
     {
-        return $this->roles()->pluck('route_segment')->first() ?? 'admin';
+        return $this->roles()->pluck('route_segment')->first() ?? 'TICKET_ADMIN';
     }
 }

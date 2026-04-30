@@ -15,7 +15,7 @@ class AddRouteSegmentAndIsActiveToRolesTable extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
             $table->unsignedTinyInteger('is_active')->default(1)->after('guard_name');
-            $table->string('route_segment', 50)->default('admin')->after('guard_name')->comment('ex: agent');
+            $table->string('route_segment', 50)->default('TICKET_ADMIN')->after('guard_name')->comment('ex: agent');
         });
     }
 

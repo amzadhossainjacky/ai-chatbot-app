@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAgent;
 use App\Http\Middleware\isGuestAgent;
+use App\Http\Middleware\IsTicketGroupAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -59,6 +60,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'is_agent' => IsAgent::class,
         'is_admin' => IsAdmin::class,
+        'is_ticket_group_admin' => IsTicketGroupAdmin::class,
         'is_guest_agent' => isGuestAgent::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

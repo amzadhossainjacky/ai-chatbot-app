@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider {
         Passport::refreshTokensExpireIn(\Carbon\Carbon::now()->addDays(1));
 
         Gate::before(function ($user, $ability) {
-            return $user->hasRole('admin') ? true : null;
+            return $user->hasRole('TICKET_ADMIN') ? true : null;
         });
 
     }

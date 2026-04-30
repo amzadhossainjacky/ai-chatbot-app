@@ -17,7 +17,7 @@ class ConversationAssociateModelSeeder extends Seeder
     public function run()
     {
         $users = User::whereHas('roles', function($query){
-            $query->where('name', 'agent');
+            $query->where('name', 'TICKET_AGENT');
         })->where(['is_active' => 1])->pluck('id')->toArray();
 
         $conversations = Conversation::whereIn('status', [1,2,3])->get();
