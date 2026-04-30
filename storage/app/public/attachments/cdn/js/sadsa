@@ -1,0 +1,16 @@
+<div class="ticket_form_ar">
+    <!-- ok-->
+    <div class="form_group_ar floating_ar">
+        <input type="text" id="contact_name_ar" required>
+        <label for="contact_name_ar" data-i18n="contact_name">
+            Contact Name <span class="gl_form_asterisk_ar">*</span>
+        </label>
+    </div>
+
+    <div class="form_group_ar floating_ar">
+        <input type="email" id="email_ar" required>
+        <label for="email" data-i18n="email">
+            Email <span class="gl_form_asterisk_ar">*</span>
+        </label>
+    </div>
+</div>

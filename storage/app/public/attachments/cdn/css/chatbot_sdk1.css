@@ -1,0 +1,1104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --color-primary: #3d85c3;
+    --color-scroll-thumb: #ded9d9;
+    --color-scroll-track: #f8f1f1;
+}
+
+.ihelp_chatbot_card {
+    position: fixed;
+    bottom: 6rem;
+    right: 3rem;
+    width: 340px;
+    height: 460px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    /* overflow: hidden; */
+    box-shadow: 2px 2px 4px #bab8b8, -2px -2px 4px #bab8b8;
+    z-index: 20;
+}
+
+.ihelp_chatbot_card_head {
+    background-color: var(--color-primary);
+    color: #fff;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 10px 15px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+}
+.ihelp_chatbot_card_head_user {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 1;
+    gap: 10px;
+}
+.bot_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.ihelp_chatbot_card_head_user_status {
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+.ihelp_chatbot_card_head_user_status_details {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 3px;
+}
+.ihelp_chatbot_card_close,
+.ihelp_chatbot_card_minimize {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.ihelp_chatbot_card_close:hover,
+.ihelp_chatbot_card_minimize:hover {
+    background-color: #fff;
+    color: #000;
+}
+.ihelp_chatbot_card_close_icon,
+.ihelp_chatbot_card_minimize_icon {
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ihelp_chatbot_card_head_user_status h1 {
+    font-size: 18px;
+    line-height: 0;
+    font-weight: 700;
+}
+.ihelp_chatbot_card_head_user_status span {
+    font-size: 14px;
+    line-height: 0;
+}
+.ihelp_chatbot_main_body {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 5rem);
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #fff;
+}
+/* Message Template */
+.ihelp_chatbot_message_container,
+.ihelp_chatbot_phone_container,
+.ihelp_chatbot_urge_for_phone_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100% + 3rem);
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.ihelp_chatbot_for_ticket_container_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100% + 3rem);
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 100;
+}
+.ihelp_chatbot_card_message_body {
+    width: 100%;
+    background-color: #e7e7f3;
+    height: calc(100% - 4rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 15px;
+}
+
+.ihelp_chatbot_card_message_body::-webkit-scrollbar {
+    width: 5px;
+}
+.ihelp_chatbot_card_message_body::-webkit-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_card_message_body::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_card_message_body::-moz-scrollbar {
+    width: 5px;
+}
+.ihelp_chatbot_card_message_body::-moz-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_card_message_body::-moz-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_card_message_body::-ms-scrollbar {
+    width: 5px;
+}
+.ihelp_chatbot_card_message_body::-ms-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_card_message_body::-ms-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_card_message_chatlist {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 10px;
+}
+.ihelp_chatbot_card_message_chatlist .ihelp_chatbot {
+    width: 100%;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ihelp_chatbot_card_message_chatlist .ihelp_chatbot .ihelp_chatbot_chat {
+    max-width: 75%;
+    background-color: #cdc8c8;
+    padding: 4px 12px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    text-align: justify;
+}
+.ihelp_chatbot_card_message_chatlist .ihelp_chatbot .ihelp_chatbot_date {
+    font-size: 12px;
+}
+.ihelp_chatbot_card_message_chatlist .ihelp_chatbot_user {
+    width: 100%;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ihelp_chatbot_card_message_chatlist
+    .ihelp_chatbot_user
+    .ihelp_chatbot_user_chat {
+    align-self: end;
+    max-width: 75%;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 10px;
+    text-align: justify;
+    overflow-wrap: break-word;
+}
+.ihelp_chatbot_card_message_chatlist
+    .ihelp_chatbot_user
+    .ihelp_chatbot_user_date {
+    font-size: 12px;
+    text-align: right;
+}
+.ihelp_chatbot_card_message_footer {
+    background-color: #fff;
+    width: 100%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+.messaage_popup_menu {
+    position: relative;
+    width: 12%;
+}
+.messaage_popup_menu_bar {
+    position: absolute;
+    width: 105px;
+    height: 115px;
+    top: calc(-100% - 100px);
+    left: 10px;
+    box-shadow: 2px 2px 5px #989494;
+    border-radius: 10px;
+    transition: all 400ms ease-in;
+}
+.message_popup_menu_bar_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding-bottom: 5px;
+    z-index: 10;
+    border-radius: 10px;
+}
+.message_popup_menu_bar_list {
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    overflow: hidden auto;
+
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.message_popup_menu_bar_container::before {
+    position: absolute;
+    bottom: -9px;
+    content: "";
+    width: 13px;
+    height: 20px;
+    background-color: white;
+    left: 12px;
+    transform: rotate(60deg);
+    box-shadow: 1px 1px 1px #989494;
+}
+.messaage_popup_menu_bar .messaage_bar_link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    transition: background-color 200ms ease-out;
+}
+.messaage_popup_menu_bar .messaage_bar_link:hover {
+    background-color: #f1efef;
+}
+.message_popup_menu_bar_list::-webkit-scrollbar {
+    width: 5px;
+}
+.message_popup_menu_bar_list::-webkit-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.message_popup_menu_bar_list::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.message_popup_menu_bar_list::-moz-scrollbar {
+    width: 5px;
+}
+.message_popup_menu_bar_list::-moz-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.message_popup_menu_bar_list::-moz-scrollbar-thumb {
+    background-color: var(--color-primary);
+}
+.message_popup_menu_bar_list::-ms-scrollbar {
+    width: 5px;
+}
+.message_popup_menu_bar_list::-ms-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.message_popup_menu_bar_list::-ms-scrollbar-thumb {
+    background-color: var(--color-primary);
+}
+.message_popup_menu_icon {
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.ihelp_chatbot_form {
+    width: 88%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 5px 10px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+.ihelp_chatbot_form .ihelp_chatbot_input {
+    border: none;
+    background-color: #d8cdcd;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.ihelp_chatbot_form .ihelp_chatbot_input:focus {
+    outline: none;
+}
+.ihelp_chatbot_form button {
+    width: 70px;
+    padding: 5px 10px;
+    border: none;
+    color: #fff;
+    background-color: rgb(150, 150, 167);
+    border-radius: 10px;
+    transition: background-color 200ms ease-in;
+    cursor: pointer;
+}
+.ihelp_chatbot_form button:hover {
+    background-color: var(--color-primary);
+}
+/* End Message Template */
+
+/* Phone Template */
+.ihelp_chatbot_phone_container,
+.ihelp_chatbot_urge_for_phone_container {
+    background-color: #d5e2fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease-in;
+}
+.ihelp_chatbot_for_ticket_container_box {
+    background-color: #fbd5fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease-in;
+}
+
+.ihelp_chatbot_urge_for_container {
+}
+.ihelp_chatbot_phone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ihelp_chatbot_phone_form {
+    width: 90%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.ihelp_chatbot_phone_form .ihelp_chatbot_phone_input {
+    width: 100%;
+    background-color: #c6c1c1;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+}
+.ihelp_chatbot_phone_form .ihelp_chatbot_phone_input::placeholder {
+    color: #fff;
+}
+.ihelp_chatbot_phone_form button {
+    width: 100px;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.ihelp_chatbot_phone_input:focus {
+    outline: none;
+}
+/* End Phone Template */
+
+/* Urge for Phone Template */
+.ihelp_chatbot_urge_for_phone_button {
+    background-color: var(--color-primary);
+    color: #fff;
+    width: 220px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.2), -2px 1px 4px rgba(0, 0, 0, 0.2);
+}
+/* End Urge for Phone Template */
+
+.ihelp_chatbot_appear {
+    position: fixed;
+    right: 4rem;
+    bottom: 1rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #58a1f9;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20000;
+}
+
+.ihelp_chatbot_appear_icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #fff;
+}
+
+.menu_bar_hidden {
+    opacity: 0;
+    top: calc(-100% - 50px);
+    z-index: -10;
+}
+.menu_bar_shown {
+    opacity: 1;
+    top: calc(-100% - 85px);
+    z-index: 0;
+}
+
+.minimized {
+    animation-name: minimized_card;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    transform-origin: bottom right;
+}
+
+@keyframes minimized_card {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+        display: none;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+.shown {
+    display: block !important;
+}
+
+/* .slide_left{
+    left: -100%;
+    z-index: -100;
+    opacity: 0;
+    display: none;
+} */
+
+.ihelp_chatbot_chat_card_list_container {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.ihelp_chatbot_chat_card_list {
+    width: 100%;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    transition: all 300ms ease-in;
+    scroll-behavior: smooth;
+}
+.ihelp_chatbot_chat_card_list::-webkit-scrollbar {
+    height: 5px;
+}
+.ihelp_chatbot_chat_card_list::-webkit-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_chat_card_list::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_chat_card_list::-moz-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_chat_card_list::-moz-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_chat_card_list::-ms-scrollbar-track {
+    background-color: var(--color-scroll-track);
+}
+.ihelp_chatbot_chat_card_list::-ms-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+}
+.ihelp_chatbot_chat_card_list::-moz-scrollbar {
+    height: 5px;
+}
+.ihelp_chatbot_chat_card_list::-ms-scrollbar {
+    height: 5px;
+}
+.ihelp_chatbot_chat_card_arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px #b7b4b4, -1px -1px 4px #b7b4b4;
+}
+.left_arrow {
+    left: 0;
+}
+.right_arrow {
+    right: 0;
+}
+.ihelp_chatbot_chat_single_card {
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: auto;
+    width: 250px;
+    max-width: 250px;
+    border-radius: 10px;
+    background-color: #f1f0f0;
+    border: 1px solid #ddd6d6;
+}
+.ihelp_chatbot_chat_single_card_image {
+    width: 100%;
+    height: 135px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.ihelp_chatbot_chat_single_card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.ihelp_chatbot_chat_single_card_content {
+    width: 100%;
+
+    padding: 10px 15px;
+}
+.ihelp_chatbot_chat_single_card_content h3 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.ihelp_chatbot_chat_single_card_content p,
+.ihelp_chatbot_chat_single_card_content .small_text {
+    margin: 0;
+    color: #807e7e;
+    line-height: 1;
+    font-size: 15px;
+    font-weight: 500;
+}
+.ihelp_chatbot_chat_single_card_content .small_text {
+    font-size: 12px;
+}
+
+/* .ihelp_chatbot_chat_single_card_content p {
+    margin: 0;
+    color: #807e7e;
+    line-height: 1;
+    font-size: 15px;
+    font-weight: 500;
+} */
+.ihelp_chatbot_chat_single_card_content .ihelp_chatbot_chat_single_card_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 36px;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: #4d5282;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.ihelp_chatbot_chat_image {
+    max-width: 234px !important;
+    height: 200px;
+    border-radius: 10px;
+}
+.ihelp_chatbot_chat_image img {
+    max-width: 234px !important;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.ihelp_chatbot_card_message_chatlist .ihelp_chatbot_tag {
+    text-align: justify;
+}
+
+.ihelp_chatbot_card_message_chatlist
+    .ihelp_chatbot_tag
+    .ihelp_chatbot_tag_item {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    color: #333;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+    margin: 3px 5px 3px 0px;
+}
+
+/* footer */
+
+/* .ihelp_chatbot_card_for_footer_container{
+    background-color: var(--color-primary);
+    color: #fff;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    z-index: 100;
+    position: fixed;
+    top: 636px;
+    right: 3rem;
+    width: 340px;
+}
+
+.ihelp_chatbot_card_for_footer_button_container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding:  6px 10px;
+}
+.ihelp_chatbot_card_for_footer_left_button, .ihelp_chatbot_card_for_footer_right_button{
+    width: 48%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+     background-color: var(--color-primary);
+     color: #fff;
+     font-size: 18px;
+    border-radius: 10px;
+} */
+
+/*############################### Footer Button Container Design === ####################################*/
+
+/* === Footer Button Container === */
+.ihelp_chatbot_card_for_footer_container {
+    background: linear-gradient(135deg, var(--color-primary), #326ea3);
+    color: #fff;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    position: fixed;
+    /* top: 636px;
+    right: 3rem; */
+    width: 340px;
+    transition: all 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 32px;
+}
+
+/* === Footer Button Container === */
+.ihelp_chatbot_card_for_footer_button_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 6px 12px;
+}
+
+/* === Footer Buttons === */
+.ihelp_chatbot_card_for_footer_left_button,
+.ihelp_chatbot_card_for_footer_right_button {
+    width: 48%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--color-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(61, 133, 195, 0.4);
+    transition: all 0.25s ease-in-out;
+    border: none;
+}
+
+/* Hover Effects */
+.ihelp_chatbot_card_for_footer_left_button:hover,
+.ihelp_chatbot_card_for_footer_right_button:hover {
+    background: #2f6fa0;
+    transform: scale(1.03);
+    box-shadow: 0 3px 6px rgba(61, 133, 195, 0.5);
+}
+
+/* Active Click Effect */
+.ihelp_chatbot_card_for_footer_left_button:active,
+.ihelp_chatbot_card_for_footer_right_button:active {
+    transform: scale(0.97);
+    background: #245a87;
+}
+
+/*############################### Ticket Container Design ####################################*/
+
+/* Container Styling */
+.ihelp_chatbot_for_ticket_container_box {
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Label Styling */
+.ihelp_chatbot_for_ticket_container_box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 20px;
+}
+
+.ihelp_chatbot_for_ticket_container_box label[for="ihelpContactName"] {
+    margin-top: 0px;
+}
+
+/* Input Styling */
+.ihelp_chatbot_for_ticket_container_box input[type="text"],
+.ihelp_chatbot_for_ticket_container_box input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    /* margin-bottom: 20px; */
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Focus State */
+.ihelp_chatbot_for_ticket_container_box input[type="text"]:focus,
+.ihelp_chatbot_for_ticket_container_box input[type="email"]:focus {
+    border-color: #0078d7;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+/* === Sector Field Styling === */
+
+/* Label for Sector (reuses general label style) */
+.ihelp_chatbot_for_ticket_container_box label[for="ihelpSector"] {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+}
+
+/* Tooltip Icon inside Label */
+.ihelp_chatbot_for_ticket_container_box label[for="sector"] span {
+    font-size: 12px;
+    color: #888;
+    margin-left: 4px;
+    cursor: help;
+    vertical-align: middle;
+}
+
+/* Select Dropdown */
+.ihelp_chatbot_for_ticket_container_box select#sector {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    appearance: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Focused Select Dropdown */
+.ihelp_chatbot_for_ticket_container_box select#sector:focus {
+    border-color: #0078d7;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+/* Textarea styling */
+#ihelp_description {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 14px;
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+/* Submit Button Styling */
+#ihelp_ticket_submit_button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2f6fa0;
+    border: none;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 10px;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+#ihelp_ticket_submit_button:hover {
+    background-color: #245a87;
+}
+
+/* Focused State */
+#ihelp_ticket_submit_button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.4);
+}
+
+/*############################### Attachment style ####################################*/
+
+#ihelp_attachment_button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0078d7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#ihelp_attachment_button:hover {
+    background-color: #005ea1;
+}
+
+#ihelp_files_area {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+.file_block {
+    border-radius: 10px;
+    background-color: rgba(144, 163, 203, 0.2);
+    margin: 5px;
+    color: initial;
+    display: inline-flex;
+    & > span.name {
+        padding-right: 0px;
+        width: max-content;
+        display: inline-flex;
+    }
+}
+.file_delete {
+    display: flex;
+    width: 24px;
+    color: initial;
+    background-color: #6eb4ff00;
+    font-size: large;
+    justify-content: center;
+    margin-right: 3px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(144, 163, 203, 0.2);
+        border-radius: 10px;
+    }
+    & > span {
+        transform: rotate(45deg);
+    }
+}
+
+#files_area {
+    overflow: auto;
+}
+.file_block {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+/*############################### Others End Ticket Container Design ####################################*/
+
+#loader {
+    content: "";
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    height: auto;
+}
+.loader {
+    display: block;
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+.loader:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    animation: ballbns 2s ease-in-out infinite alternate;
+}
+@keyframes ballbns {
+    0% {
+        left: 0;
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+    }
+    100% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+/* 
+others */
+
+.select2 {
+    width: 100% !important;
+}
+.select2-container .select2-selection--single {
+    height: 38.4px !important;
+}
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
+    line-height: 37px !important;
+}
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
+    top: 6px !important;
+}
+
+/* #loader{
+    content: '';
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    background: #fff;
+    height: 3rem;
+
+}
+
+.loader {
+    width: 100%;
+    display: block;
+    margin: auto;
+    position: relative;
+    border-radius: 4px;
+    color: #b41d1d;
+    background: currentColor;
+    box-sizing: border-box;
+    animation: animloader 0.6s 0.3s ease infinite alternate;
+    height: 12px;
+    top: 16px;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';
+    box-sizing: border-box;
+    width: 20px;
+    height: 12px;
+    background: #dc3545;
+    position: absolute;
+    border-radius: 4px;
+    top: 0px;
+    right: 110%;
+    animation: animloader 0.6s ease infinite alternate;
+  }
+  .loader::after {
+    left: 110%;
+    right: auto;
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes animloader {
+    0% {
+      width: 20px;
+    }
+    100% {
+      width: 48px;
+    }
+  } */
+
+/* validation for error message */
+.input-error {
+    border: 1px solid red;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
