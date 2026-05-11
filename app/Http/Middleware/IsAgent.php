@@ -18,7 +18,7 @@ class IsAgent
     public function handle(Request $request, Closure $next)
     {
         //return $next($request);
-        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_AGENT')) {
+        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'agent')) {
             return $next($request);
         } else {
             abort(404);

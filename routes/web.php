@@ -39,7 +39,7 @@ Route::middleware(['is_guest_agent'])->group(function () {
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\Common\BotManController@handle');
 
 /** Admin Routes */
-Route::group(['as' => 'TICKET_ADMIN.', 'prefix' => 'TICKET_ADMIN', 'middleware' => ['auth', 'is_admin']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
 
     ## Dashboard
     Route::controller(DashboardController::class)->group(function () {
@@ -150,7 +150,7 @@ Route::group(['as' => 'TICKET_ADMIN.', 'prefix' => 'TICKET_ADMIN', 'middleware' 
    
 });
 
-Route::group(['as' => 'TICKET_AGENT.', 'prefix' => 'TICKET_AGENT', 'middleware' => ['auth', 'is_agent']], function () {
+Route::group(['as' => 'agent.', 'prefix' => 'agent', 'middleware' => ['auth', 'is_agent']], function () {
 
      ## Dashboard
      Route::controller(DashboardController::class)->group(function () {
@@ -360,7 +360,7 @@ Route::group(['as' => 'TICKET_AGENT.', 'prefix' => 'TICKET_AGENT', 'middleware' 
 
 });
 
-Route::group(['as' => 'TICKET_GROUPADMIN.', 'prefix' => 'TICKET_GROUPADMIN', 'middleware' => ['auth', 'is_ticket_group_admin']], function () {
+Route::group(['as' => 'staff.', 'prefix' => 'staff', 'middleware' => ['auth', 'is_staff']], function () {
 
      ## Dashboard
      Route::controller(DashboardController::class)->group(function () {

@@ -50,3 +50,6 @@ Route::get('/get-agent-notify', [ApiNotifyController::class, 'get_agent_notifica
 
 ## Knlowledge
 Route::get('/knowledge', [KnowledgeController::class, 'get_all_active_knowledge']);
+
+// Proxy route to forward AI ask requests (avoids CORS on client-side)
+Route::post('/ai/ask', [\App\Http\Controllers\AIProxyController::class, 'ask']);

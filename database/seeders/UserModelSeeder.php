@@ -86,8 +86,8 @@ class UserModelSeeder extends Seeder
 
         $users4 = [
             [
-                'name' => 'groupadmin',
-                'email' => 'groupadmin@gmail.com',
+                'name' => 'staff',
+                'email' => 'staff@gmail.com',
                 'password' => Hash::make($password),
                 'created_at' => now(),
                 'updated_at' => now(),

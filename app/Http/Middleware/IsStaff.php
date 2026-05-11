@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsTicketGroupAdmin
+class IsStaff
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class IsTicketGroupAdmin
     public function handle(Request $request, Closure $next)
     {
         //return $next($request);
-        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'TICKET_GROUPADMIN')) {
+        if (Auth::check() &&  (Auth::user()->getRoleNames()[0] == 'staff')) {
             return $next($request);
         } else {
             abort(404);

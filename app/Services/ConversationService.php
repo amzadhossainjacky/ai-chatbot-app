@@ -44,7 +44,7 @@ class ConversationService
     {
         $role = Auth::user()->roles->pluck('name')->first();
 
-        if ($role == "TICKET_ADMIN") {
+        if ($role == "admin") {
             return Conversation::with('leads')->whereIn('status', [2, 3])->orderBy('id', 'DESC')->get();
         }
         return Conversation::with('leads')->whereHas('associates', function ($query) {
@@ -125,7 +125,7 @@ class ConversationService
         $role = Auth::user()->roles->pluck('name')->first();
         $conversation_info['queue'] = TempQueueConversation::get()->count();
 
-        if ($role == "TICKET_ADMIN") {
+        if ($role == "admin") {
             $conversation_info['new'] = conversation::where('status', 2)->get()->count();
             $conversation_info['progress'] = conversation::where('status', 3)->get()->count();
             return  collect($conversation_info);
@@ -468,7 +468,7 @@ class ConversationService
 
     public function get_all_chats()
     {
-        if (Auth::user()->hasRole('TICKET_AGENT')) {
+        if (Auth::user()->hasRole('agent')) {
             return Conversation::whereHas('associates', function ($query) {
                 $query->where('user_id', auth()->id());
             })->with([
@@ -478,7 +478,7 @@ class ConversationService
             ])->orderBy('id', 'DESC');
         } 
 
-        if (Auth::user()->hasRole('TICKET_GROUPADMIN')) {
+        if (Auth::user()->hasRole('staff')) {
             return Conversation::whereHas('associates', function ($query) {
                 $query->where('user_id', auth()->id());
             })->with([

@@ -51,7 +51,7 @@
                     @endcan
                     
                         @can('conversation-list')
-                        @if (auth()->check() && (auth()->user()->hasRole('TICKET_AGENT')))
+                        @if (auth()->check() && (auth()->user()->hasRole('agent')))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route(\Request::segment(1) . '.conversations') }}">
                                     <div class="menu-title d-flex align-items-end"><i class='{{_icons('messages')}}'></i>Conversations</div>
